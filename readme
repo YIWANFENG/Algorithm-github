@@ -1,0 +1,4 @@
+
+
+.POINT clean:
+	rm *.exe *.bak
