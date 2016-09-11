@@ -1,5 +1,5 @@
 #include <iostream>
-
+///ตÝน้ 
 using namespace std;
 
 int DevideInteger(int n, int m){

@@ -1,5 +1,7 @@
 #include <iostream>
 #include <cmath> 
+//ตÝน้ 
+
 using namespace std;
 
 

@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-
+///ตÝน้ 
 using namespace std;
 
 template<typename T_>
