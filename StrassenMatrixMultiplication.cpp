@@ -112,28 +112,35 @@ void Strassen(T_ *A, T_ *B, T_ *C , int n) {
 		T_*m7 = new T_[n/2*n/2];
 		//º∆À„ 
 		MatrixAdd<T_>(tmp1, b12, b22, n/2, n/2, -1); 
-		MatrixMulti<T_>(m1, a11, tmp1, n/2, n/2);
+		//MatrixMulti<T_>(m1, a11, tmp1, n/2, n/2);
+		Strassen<T_>(m1, a11, tmp1, n/2);
 		
 		MatrixAdd<T_>(tmp1, a11, a12, n/2, n/2, 1);
-		MatrixMulti<T_>(m2, tmp1, b22, n/2, n/2);
+		//MatrixMulti<T_>(m2, tmp1, b22, n/2, n/2);
+		Strassen<T_>(m2, tmp1, b22, n/2);
 		
 		MatrixAdd<T_>(tmp1, a21, a22, n/2, n/2, 1);
-		MatrixMulti<T_>(m3, tmp1, b11, n/2, n/2);
+		//MatrixMulti<T_>(m3, tmp1, b11, n/2, n/2);
+		Strassen<T_>(m3, tmp1, b11, n/2);
 		
 		MatrixAdd<T_>(tmp1, b21, b11, n/2, n/2, -1);
-		MatrixMulti<T_>(m4, a22, tmp1, n/2, n/2);
+		//MatrixMulti<T_>(m4, a22, tmp1, n/2, n/2);
+		Strassen<T_>(m4, a22, tmp1, n/2);
 		
 		MatrixAdd<T_>(tmp1, a11, a22, n/2, n/2, 1);
 		MatrixAdd<T_>(tmp2, b11, b22, n/2, n/2, 1);
-		MatrixMulti<T_>(m5, tmp1, tmp2, n/2, n/2);
+		//MatrixMulti<T_>(m5, tmp1, tmp2, n/2, n/2);
+		Strassen<T_>(m5, tmp1, tmp2, n/2);
 		
 		MatrixAdd<T_>(tmp1, a12, a22, n/2, n/2, -1);
 		MatrixAdd<T_>(tmp2, b21, b22, n/2, n/2, 1);
-		MatrixMulti<T_>(m6, tmp1, tmp2, n/2, n/2);
+		//MatrixMulti<T_>(m6, tmp1, tmp2, n/2, n/2);
+		Strassen<T_>(m6, tmp1, tmp2, n/2);
 		
 		MatrixAdd<T_>(tmp1, a11, a21, n/2, n/2, -1);
 		MatrixAdd<T_>(tmp2, b11, b12, n/2, n/2, 1);
-		MatrixMulti<T_>(m7, tmp1, tmp2, n/2, n/2);
+		//MatrixMulti<T_>(m7, tmp1, tmp2, n/2, n/2);
+		Strassen<T_>(m7, tmp1, tmp2, n/2);
 		
 		MatrixAdd<T_>(tmp1, m5, m4, n/2, n/2, 1);
 		MatrixAdd<T_>(tmp2, m6, m2, n/2, n/2, -1);
@@ -192,11 +199,17 @@ void Strassen(T_ *A, T_ *B, T_ *C , int n) {
 
 int main()
 {
-	int col = 4, row = 4;
+	int col = 16, row = 16;
 
-	int A[4][4];
-	int B[4][4] = {1,2,3,4,7,8,9,10,11,12,13,14,15,16};
-	int C[4][4] = {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1};
+	int A[16][16];
+	int B[16][16];
+	int C[16][16];
+	for(int i=0;i<16;++i) {
+		for(int j=0;j<16;++j) {
+			B[i][j] = i+10+j;
+			C[i][j] = 1;
+		}
+	}
 	//Show<int>((int*)B,4,4);
 	MatrixMulti<int>((int*)A, (int*)B, (int*)C, row, col); 
 	for(int i=0; i<row; i++) {
