@@ -1,11 +1,15 @@
 #include <iostream>
 #include <cmath>
+<<<<<<< HEAD
 #include <cstring>
+=======
+>>>>>>> b202c9586a958b25a6a396247c3e7b052601769d
 ///分治
 
 using namespace std;
 
 // Strassen 矩阵乘法 
+<<<<<<< HEAD
 //适用于 n*n方阵 n为2的幂次 
 // 改进方向在原数组操作？ 
 
@@ -228,3 +232,14 @@ int main()
 	}
 	return 0;
 }
+=======
+
+
+int main()
+{
+	
+	
+	
+	return 0;
+} 
+>>>>>>> b202c9586a958b25a6a396247c3e7b052601769d
