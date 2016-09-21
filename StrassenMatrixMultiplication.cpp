@@ -1,13 +1,16 @@
 #include <iostream>
 #include <cmath>
 #include <cstring>
+#include <cstring>
 ///分治
 
 using namespace std;
 
 // Strassen 矩阵乘法 
+
 //适用于 n*n方阵 n为2的幂次 
 // 改进方向在原数组操作？ 
+
 
 //PS:下面代码大部分为数组分块拷贝，(⊙﹏⊙)b
 template<class T_>
@@ -228,3 +231,6 @@ int main()
 	}
 	return 0;
 }
+
+
+ 
