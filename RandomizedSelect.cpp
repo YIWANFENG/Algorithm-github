@@ -62,31 +62,39 @@ T_ RandomizedSelect(T_ a[],int s,int e,int k) {
 
 template<class T_>
 bool cmp(T_ a,T_ b) {
-	if(a<=b)
+	if(a>=b)
 		return true;
 	return false;
 }
 
 template<class T_>
-T_ Select(T_　a[],int s,int e,int k) {
+
+
+template<class U_>
+U_ Select_T(U_[], int s, int e, int k) {
 	if(e-s<75) {
-		sort(a,a+e,cmp<T_>); //某简单算法将a排序 
+		sort(a,a+e,cmp<U_>); //某简单算法将a排序 
 		return a[s+k-1];
 	}
 	for(int i=0;i<=(e-s-4)/5;++i) {
+		//(e-s+1)/5 = 一共有多少分组 
+		//(e-s-4)/5 = (e-s+1)/5-1 
 		//将a[s+5*i]至a[s+5*i+4]的第三小元素与a[s+i]
-		//Swap<T_>(a[s+i],); 
+		//Swap<U_>(a[s+i],); 
+		
+		
+		
+		
 	}
 	//交换位置，找到中位数的中位数
-	T_ x = Select<T_>(a,s,s+(e-s-4)/5,(e-s-4)/10);
-	int i = Partition<T_>(a,s,e,x),j=i-s+1;
+	U_ x = Select_T<U_>(a,s,s+(e-s-4)/5,(e-s-4)/10);
+	int i = Partition<U_>(a,s,e,x),j=i-s+1;
 	if(k<=j) 
-		return Select<T_>(a,s,i,k);
+		return Select_T<U_>(a,s,i,k);
 	else
-		return Select<T_>(a,i+1,e,k-j);
+		return Select_T<U_>(a,i+1,e,k-j);
 	
 } 
-
 
 int main() {
 	
@@ -96,9 +104,18 @@ int main() {
 	
 	int pp=0;
 	cin>>pp;
+	
 	int j = RandomizedSelect<int>(a,0,99,pp);
-	int c = Select<int>(a,0,99,pp);
+	int c = Select_T<int>(a,0,99,pp);
 	cout<<j<<endl<<c;
+		
+	
+	/*
+	sort(a,a+50,cmp<int>); //某简单算法将a排序 
+	for(int i=0;i<100;++i) {
+		cout<<a[i]<<' ';
+	}
+	*/
 	cin>>pp;
 	
 	
