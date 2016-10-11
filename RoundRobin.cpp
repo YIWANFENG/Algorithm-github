@@ -21,7 +21,6 @@ void timetable(int k,int a[][n]) {
 					a[i][j+t*m*2] = a[i-m][j+t*m*2-m];
 					a[i][j+t*m*2-m] = a[i-m][j+t*m*2];
 				}
-			
 		m*=2;
 	}
 }
@@ -59,7 +58,7 @@ int main() {
 		cout<<endl;
 	}
 	
-
+	system("pause"); 
 	
 	return 0;
 }
