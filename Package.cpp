@@ -1,35 +1,44 @@
 #include <iostream>
-
+#include <algorithm>
 
 //0-1背包问题
  
 using namespace std;
-
-
-void Knapsack(int n,float c,float v[],float w[],float x[]) 
+class Goods{
+public:
+	int i;//编号 
+	float v,w;//价值，重量 
+}; 
+bool cmp(Goods a,Goods b) {
+	if(a.v/a.w < b.v/b.w) return true;
+	return false;
+}
+void Knapsack(int n,float c,Goods g[],float x[]) 
 	//背包问题 
 {	//n物品总数，c背包总承重 
-	//v[i] i的总价值，w[i] i 的总重量 
+	//g[i].v=i的总价值，g[i].w=i 的总重量 
 	//x[i] 选择i多少份 
+	sort(g,g+n,cmp);
 	int i;
 	for(i=0;i<n;++i) x[i]=0;
 	for(i=0;i<n;++i) {
-		if(w[i]>c) break;
+		if(g[i].w>c) break;
 		x[i]=1;
-		c-=w[i];
+		c-=g[i].w;
 	}
-	if(i<=n) x[i]=c/w[i];
+	if(i<=n) x[i]=c/g[i].w;
 } 
 
-void printResult(float x[],int n) {
+void printResult(Goods g[] ,float x[],int n) {
 	for(int i=0;i<n;++i) {
-		cout<<"seletc "<<x[i]<<" 份 "<<i<<endl; 
+		cout<<"seletc "<<x[i]<<" 份 "<<g[i].i<<endl; 
 	}
 }
 
 int main()
 {
-	
+	Goods a[10];
+	for(int i=0;i<10;++i) a[i].i=i;
 	
 	
 	return 0;
