@@ -1,5 +1,44 @@
-For practice.
-Learn step by step.
+本文件夹内算法对应关系:		by ywf
+
+
+Ackerman	Ackerman函数
+	
+BinarySearch	二分查找
+
+DevideInteger	整数划分
+
+ExchangeArray	同一数组前后交换
+
+StrassenMatrixMultiplication	Strassen矩阵乘法
+
+GreedSelector	活动贪心安排
+
+SameElemPrem	含相同元素的全排列问题
+
+Fibonacci	斐波那契数列
+
+RoundRobin	循环比赛安排
+
+Hanoi		汉诺塔递归算法
+
+RandomizedSelect	随机选择
+
+FillChessboard		棋盘填充
+
+Permutation	无重复元素的全排列
+
+Package		背包问题贪心算法
+
+LargeNumberMulti	大数相乘
+
+MergeSort	归并排序/自然规定排序
+
+LCSLength	最长公共子串
+
+MatrixChain	矩阵连乘链的最少计算安排
+
+MaxSumOfSubsegment	最长子段和
+
+
 				
-Want see the world with you.				
-				by ywf
+				
