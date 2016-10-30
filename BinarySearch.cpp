@@ -16,7 +16,7 @@ int BinarySearch(T_ Data[], const T_ val, int len) {
 		else if(Data[mid]<val) left = mid+1;
 		else right = mid-1; 
 	}
-	return -1;
+	return left;
 } 
 
 template<class T_>
@@ -45,10 +45,10 @@ int BinarySearch3(T_ Data[], const T_ val,int start, int end) {
 
 int main()
 {
-	int a[] = {1,2,3,4,5,7,6,8,9,10};
-	cout<<BinarySearch<int>(a, 3, 10)<<endl;
-	cout<<BinarySearch2<int>(a, 9, 10)<<endl;
-	cout<<BinarySearch3<int>(a, 9, 0, 9)<<endl; 
+	int a[] = {1,2,3,4,5,7,6,8,11,12,15};
+	cout<<BinarySearch<int>(a, 9, 11)<<endl;
+	//cout<<BinarySearch2<int>(a, 9, 10)<<endl;
+	//cout<<BinarySearch3<int>(a, 9, 0, 9)<<endl; 
 	
 	
 	
