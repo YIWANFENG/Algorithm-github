@@ -82,7 +82,7 @@ int GetSorted(T_ a[],int n,int sorted[]) {
 	return iter_sorted;
 }
 
-
+/*
 template<class T_>
 void NationalMergePass(T_ a[],T_ b[],int n,int sorted[]) {
 	//将a合并到b 
@@ -96,7 +96,7 @@ void NationalMergePass(T_ a[],T_ b[],int n,int sorted[]) {
 		}
 	}
 }
-
+*/
 template<class T_>
 void NationalMergeSort(T_ a[],int n) {
 	int sorted[n+1];
