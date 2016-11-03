@@ -21,7 +21,7 @@ RoundRobin	循环比赛安排
 
 Hanoi		汉诺塔递归算法
 
-RandomizedSelect	随机选择
+RandomizedSelect	线性随机选择
 
 FillChessboard		棋盘填充
 
@@ -31,7 +31,9 @@ Package		背包问题贪心算法
 
 LargeNumberMulti	大数相乘
 
-MergeSort	归并排序/自然规定排序
+MergeSort	归并排序/自然规并排序
+
+NationalMergeSort	自然规并排序
 
 LCSLength	最长公共子串
 

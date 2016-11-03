@@ -49,8 +49,9 @@ T_ RandomizedSelect(T_ a[],int s,int e,int k) {
 	if(s==e) return a[s];
 	int i = RandomizedPartition<T_>(a,s,e);	//获得中间某值元素位置 
 	int j = i-s+1;
-	if(k<=j) {		//分治，不过每次只计算一边 
-		return RandomizedSelect<T_>(a,s,i,k);
+	if(k==j) return a[i]; 
+	if(k<j) {		//分治，不过每次只计算一边 
+		return RandomizedSelect<T_>(a,s,i-1,k);
 	} else {
 		return RandomizedSelect<T_>(a,i+1,e,k-j);
 	}
@@ -104,8 +105,9 @@ U_ Select_T(U_[], int s, int e, int k) {
 	U_ x = Select_T<U_>(a,s,s+(e-s-4)/5,(e-s-4)/10);
 	int i = Location<U_>(a,s,e,x);//x在a[s]-a[e]的位置 
 	int j=i-s+1;
-	if(k<=j)
-		return Select_T<U_>(a,s,i,k);
+	if(k==j) return a[i];
+	if(k<j)
+		return Select_T<U_>(a,s,i-1,k);
 	else
 		return Select_T<U_>(a,i+1,e,k-j);
 } 
