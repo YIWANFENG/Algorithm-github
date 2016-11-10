@@ -6,55 +6,47 @@
 
 using namespace std;
 
-int ElemCount = 0;
-// 交换元素
-void swap(char &a, char &b) {
-    char tmp;
-    tmp = a;
-    a = b;
-    b = tmp;
+template<typename T_>
+inline void Swap(T_ &a, T_ &b){
+	T_ item = a;
+	a = b;
+	b = item;
 }
- 
-// 递归全排列
-void perm(char c[], int s, int e) {
-    if(s == e) {    // 开始index == 结束index 
-        for( int i = 0; i <= e; i ++)
-            cout << c[i];
-        cout << endl;
-        ElemCount ++;
-    }else {
-        for(int i = s; i <= e;  i++) {
-            int mark = 0;
-            for(int j = s; j < i; j ++) {
-                if(c[j] == c[i]) {
-                    mark = 1;
-                    break;
-                }
-            }
-            if(1 == mark) 
-                continue;
-            swap(c[s], c[i]);
-            perm(c, s + 1, e);
-            swap(c[s], c[i]);
-        }
-    }
+
+template<typename T_>
+void Permutation(T_ list[], int i_start, int i_end){
+	//对含重复元素的list全排列并输出 
+	//需排列的数组 list
+	
+	if(i_start == i_end){
+		for(int i=0; i<=i_end; ++i) 
+			cout<<list[i]<<' ';
+		cout<<endl;
+	} 
+	else {
+		
+		for(int i=i_start; i<=i_end; ++i){
+			bool fg = true;
+			for(int j=i_start; j<i; ++j) {
+				if(list[j]==list[i]) {
+					fg = false;
+					break;
+				}
+			}
+			if(!fg) continue;
+			Swap<T_>(list[i_start], list[i]);
+			Permutation<T_>(list, i_start+1, i_end);
+			Swap<T_>(list[i_start], list[i]);
+		}
+	}
 }
- 
- 
-void Algo1() {
-	int n;
-    char c[16];
-    char tmp;
-    std::cin >> n;
-    tmp = getchar();    // 接受回车
-    if(1 <= n && n <= 15) {
-        for( int i = 0; i < n; i ++) {
-            c[i] = getchar();
-        }
-        perm(c, 0, n - 1);
-        cout << ElemCount << endl;
-    }
-}
+int test0()
+{
+	int list[]={4,4,5,6,6};
+	Permutation<int>(list, 0, sizeof(list)/sizeof(int)-1);
+	cout<<"键入任意键退出\n";
+	getchar();
+} 
 /////////////////////////////////////////////////
 void BySTL() {
 	
@@ -70,10 +62,11 @@ void BySTL() {
 
 int main()
 {
-	Algo1();
+	test0();
 	//BySTL();
     return 0;
 }
+
 
 
 
