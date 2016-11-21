@@ -1,5 +1,23 @@
 本文件夹内算法对应关系:		by ywf
 
+
+
+Kruskal		Kruskal最小生成树
+
+UnionFind	并差集
+
+Knapsack	背包问题
+
+HuffmanTreeGreedy	HuffmanTree前缀码
+
+FlowShop	流水作业调度
+
+ElectricWirePlan	电路布线问题
+
+Dijkstra_ShortestPath	 Dijkstra算法求最短路径
+
+How_to_invest   投资问题/整数线性规划
+
 CompressPicture 图像分段压缩最优分段
 
 Ackerman	Ackerman函数
@@ -43,5 +61,7 @@ MatrixChain	矩阵连乘链的最少计算安排
 MaxSumOfSubsegment	最长子段和
 
 ConvexPolygonTriSubdivision 凸多边形最优三角剖分
+
+NP-0	多机调度0
 				
 				
