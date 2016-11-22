@@ -86,7 +86,7 @@ public:
 class cmp {
 public:
 	bool operator() (Edge &a,Edge&b) {
-		return a.weight < b.weight;
+		return a.weight > b.weight;
 	}
 };
 
@@ -99,16 +99,16 @@ bool Kruskal(int n,int e,Edge E[],Edge t[])
 	//t[](out) 筛选出的边
 	
 	priority_queue<Edge,vector<Edge>,cmp > q;
-	for(int i=0; i<n; ++i) {
+	for(int i=0; i<e; ++i) {
 		q.push(E[i]);
 	}
 	CUnionFind U;
 	U.Init(n);
 	
 	int k =0;
-	while(e && k<n-1) {
+	while(e && k<n-1) {		//正常树应该会有n-1条边 
 		Edge x;
-		x = q.top();
+		x = q.top();	
 		q.pop();
 		e--;
 		int a = U.FindSubSet(x.u);
@@ -116,6 +116,7 @@ bool Kruskal(int n,int e,Edge E[],Edge t[])
 		
 		if(a!=b) {
 			t[k++] = x;
+			//cout<<"["<<x.u<<','<<x.v<<"]"<<endl;
 			U.SubSetUnion(a,b);
 		}
 	}
