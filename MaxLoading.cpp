@@ -57,15 +57,21 @@ private:
 			if(flag==0 && cw+w[k]<=c) {//约束函数 
 				x[k] = 1;
 				cw+=w[k];
-				//flag = 1;
 				r -= w[k];
-				st.push(1);
-			} else flag += 1;
+				
+			} else flag = 1;
 			//搜索右子结点
 			if(flag==1 && cw+r>bestw) { 
-				//限界函数 
 				x[k] = 0;
-			} else flag += 1;//此层遍历完毕 
+			} else {
+				flag = 2;//此层遍历完毕 	
+			} 
+			
+			if(flag == 0) //下一次为右子树 
+				st.push(1);
+			else 		  // 下一次为结束 
+				st.push(2);
+				
 			if(flag!=2) { //找到满足约束的子结点 
 				if(k==n) { //到达叶子结点  
 					for(int i=1; i<=n; ++i) {

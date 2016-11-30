@@ -1,6 +1,12 @@
 本文件夹内算法对应关系:		by ywf
 
+TheMostleastNumOfTurn	最少转向遍历矩阵-回溯法
 
+MaxLoading	最优装载问题-回溯法
+
+NQueenSolver	N皇后问题-回溯法
+
+Knapsack_backtrack	0-1背包-回溯法
 
 Kruskal		Kruskal最小生成树
 
