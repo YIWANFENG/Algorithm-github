@@ -48,50 +48,40 @@ private:
 		
 	} 
 	void Backtrack_Iterative(void) {
-		//
-		int k = 1;
-		int flag = 0;
-		stack<int> st;
- 		while(k>0) {
+		int i = 1;
+		
+ 		while(true) {
 			//搜索左子节点 
-			if(flag==0 && cw+w[k]<=c) {//约束函数 
-				x[k] = 1;
-				cw+=w[k];
-				r -= w[k];
-				
-			} else flag = 1;
-			//搜索右子结点
-			if(flag==1 && cw+r>bestw) { 
-				x[k] = 0;
+			while(i<=n && cw+w[i]<=c) {
+				r -=w[i];
+				cw +=w[i];
+				x[i] = 1;
+				++i;
+			}
+			if(i>n) {
+				for(int j=1; j<=n; ++j) 
+					bestx[j] =x[j];
+				bestw = cw;
 			} else {
-				flag = 2;//此层遍历完毕 	
-			} 
-			
-			if(flag == 0) //下一次为右子树 
-				st.push(1);
-			else 		  // 下一次为结束 
-				st.push(2);
-				
-			if(flag!=2) { //找到满足约束的子结点 
-				if(k==n) { //到达叶子结点  
-					for(int i=1; i<=n; ++i) {
-						int sum = 0;
-						if(x[i]==1)
-							sum += w[i];
-						if(sum>bestw) bestw = sum; 
-					}
-				} else {
-					//进入下一层结点 
-					++k;
-					flag = 0; 
+				//进入右子树
+				r-=w[i];
+				x[i] = 0;
+				++i; 
+			}
+			//剪枝回溯 
+			while( cw+r<=bestw ) {
+				--i;
+				while(i>0 && !x[i]) {
+					//从右子树返回 
+					r += w[i];
+					--i; 
 				}
-			} else {
-				//所有子结点遍历完毕，回溯 
-				cw-=w[k];
-				r += w[k];
-				--k;
-				flag = st.top();
-				st.pop();
+				if(i==0)
+					return ;
+				//进入右子树
+				x[i] = 0;
+				cw -= w[i];
+				++i; 
 			}
 		}
 	}
