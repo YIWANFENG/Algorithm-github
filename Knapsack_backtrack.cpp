@@ -51,6 +51,7 @@ private:
 		if(i>n) {
 			//到达叶子
 			bestp = cp;
+			cout<<"CCC"<<cp<<endl;
 			for(int j=1; j<=n; ++j) bestx[j] = x[j]; 
 			return ;
 		}
@@ -58,13 +59,15 @@ private:
 		//搜索左子节点 
 		if(cw+w[i]<=c) {//约束函数 
 			x[i] = 1;
-			T_ cw_backup = cw;
-			W_ cp_backup = cp; 
+			//T_ cw_backup = cw;
+			//W_ cp_backup = cp;
 			cw+=w[i];
 			cp+=p[i];
 			Backtrack(i+1);
-			cw = cw_backup; 
-			cp = cp_backup;
+			cw-=w[i];
+			cp-=p[i];
+			//cw = cw_backup;
+			//cp = cp_backup;
 		}
 		//搜索右子结点
 		if(Bound(i+1)>bestp) { //限界函数 
@@ -72,32 +75,8 @@ private:
 			Backtrack(i+1);
 		} 	
 	} 
-	/*void Backtrack_Iterative(int i) {
-		//
-		int k = 1;
-		bool flag = true;
-		while(k>0) {
-			//左子树
-			if(flag && cw+w[k]<=c) {//约束函数 
-				x[k] = 1;
-				T_ cw_backup = cw;
-				cw+=w[i];
-				Backtrack(i+1);
-				cw = cw_backup; 
-			}
-			
-			
-			
-			//右子树  
-			if(flag && cw+r>bestw) { //限界函数 
-				x[i] = 0;
-				Backtrack(i+1);
-			} 
-			
-		}
 	
 	
-	}*/
 public:
 	W_ Solve(int n_,T_ c_,const T_ *w_,const W_ *p_,int *bestx_) {
 		//n_ 物品数量
@@ -134,18 +113,23 @@ public:
 		}
 		
 		sort(Q,Q+n); //物品按单位价值从大到小排序 ,以便Bound() 
+		
 		//一般情况 
 		for(int i=1; i<=n; ++i) {
 			p[i] = p_[ Q[i-1].ID ];
 			w[i] = w_[ Q[i-1].ID ]; 
 		}
+		/*for(int i=1;i<=n;++i)
+		{
+			cout<<p[i]<<' '<<w[i]<<endl;
+		}*/
 		Backtrack(1);
 		
 		//最优解 
 		for(int i=1; i<=n; ++i) 
 			x[Q[i-1].ID] = bestx[i];
 		for(int i=1; i<=n; ++i) 
-			x[i] = bestx[i];
+			bestx_[i] = x[i];
 			
 		delete [] p;
 		delete [] w;
@@ -166,7 +150,7 @@ int main()
 	float p[] = {0,9,10,7,4};
 	int x[n+1];
 	float bestp = ml.Solve(n,7,w,p,x);
-	
+	//float bestp = ml.Solve_Iterative(n,7,w,p,x);
 	cout<<"最优值:"<<bestp<<endl<<"装载方式:\n";
 	for(int i=1; i<=n; ++i) {
 		cout<<x[i]<<' ';
