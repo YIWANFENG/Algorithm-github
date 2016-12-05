@@ -1,6 +1,7 @@
 本文件夹内算法对应关系:		by ywf
 
-TheMostleastNumOfTurn	最少转向遍历矩阵-回溯法
+
+TheMostleastNumOfTurn	最少转向遍历矩阵(罗密欧与朱丽叶迷宫问题)-回溯法
 
 MaxLoading	最优装载问题-回溯法
 
