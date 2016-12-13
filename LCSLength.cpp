@@ -56,8 +56,8 @@ int main(int argc,char*argv[]) {
 	
 	const char *x="adcd";
 	const char *y="adscaxzd";
-	memset(c,0,n*m*sizeof(int));
-	memset(b,0,n*m*sizeof(int));
+	//memset(c,0,n*m*sizeof(int));
+	//memset(b,0,n*m*sizeof(int));
 	LCSLength(strlen(x),strlen(y),x,y);
 	for(int i=0;i<strlen(x)+1;++i) {
 		for(int j=0;j<strlen(y)+1;++j) {

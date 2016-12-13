@@ -6,7 +6,7 @@ using namespace std;
 
 
 const int my_n = 5;
-const int my_all = 20; 
+const int my_all = 10; 
 
 
 
