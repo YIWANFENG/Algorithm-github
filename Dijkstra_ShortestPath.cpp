@@ -5,7 +5,6 @@
  
 using namespace std;
 
-
 template <class T_> 
 void Dijkstra_ShortestPath(int n,int v,T_ dist[],int prev[],
 						const T_ *c,const T_ INF) 
