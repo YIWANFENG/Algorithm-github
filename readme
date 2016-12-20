@@ -1,6 +1,27 @@
 本文件夹内算法对应关系:		by ywf
 
 
+
+RandomNumGen	线性同余产生随机数
+
+PrimeTest	素数测试-蒙特卡洛算法 
+
+NQueue_Las_Vegas 	N皇后问题-Las Vegas
+
+MajorityElement 	主元素判断-蒙特卡洛
+
+PlayerUnion  	运动员最佳配对-分支限界
+
+MostLightMachineWeight	限定价格内最小重量机器设计-分支限界
+
+TSP		旅行售货员问题-分支限界法
+
+Loading 	最优装载问题-分支限界
+
+TravelingSalesmanProblem	旅行售货员问题-回溯
+
+GrapthMColor			图的M着色问题-回溯
+
 WorkAssignment 		工作分配问题-回溯法
 
 WordFamousPaintingsMonitors   世界名画监控问题-回溯法
