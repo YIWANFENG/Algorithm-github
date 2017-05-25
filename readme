@@ -1,7 +1,10 @@
 本文件夹内算法对应关系:		by ywf
 
-AStar		A*算法八数码问题
+Kmeans			kmeans解决四维聚类分析
 
+Adaboost		Adaboost解决数字简单分类
+
+AStar		A*算法八数码问题
 
 RandomNumGen	线性同余产生随机数
 
