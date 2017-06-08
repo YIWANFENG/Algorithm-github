@@ -1,5 +1,7 @@
 本文件夹内算法对应关系:		by ywf
 
+fight		极大极小搜索-井字游戏零和博弈
+
 Kmeans			kmeans解决四维聚类分析
 
 Adaboost		Adaboost解决数字简单分类
