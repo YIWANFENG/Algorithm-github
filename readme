@@ -1,5 +1,7 @@
 本文件夹内算法对应关系:		by ywf
 
+LinearCongruences	线性同余-扩展欧几里得算法 
+
 Guass_with_freaction	高斯消元法求解线性方程（分数精确表示）
 
 fight		极大极小搜索-井字游戏零和博弈
