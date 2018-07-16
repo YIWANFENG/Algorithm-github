@@ -22,6 +22,7 @@ int gcd(int a,int b) {
 
 int gcdEx(int a,int b,int &x,int &y) {
 	//扩展欧几里得算法
+	//求得aX + nY = gcd(a,n) 的一个(X,Y)
 	if(b!=0) {
 		int r = gcdEx(b,a%b,x,y);
 		int t = x;
@@ -38,7 +39,7 @@ int gcdEx(int a,int b,int &x,int &y) {
 
 
 void linear_congruences(int a,int b,int n){
-	//ax = b (mod n)
+	//求得 ax = b (mod n) 
 	if(b % gcd(a,n) == 0){
 		int x,y,d,c,re;
 		if (n>a) {

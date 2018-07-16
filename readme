@@ -1,5 +1,7 @@
 本文件夹内算法对应关系:		by ywf
 
+LinearCongruenceEquations	线性同余方程组-中国剩余定理or合并方程
+
 LinearCongruences	线性同余-扩展欧几里得算法 
 
 Guass_with_freaction	高斯消元法求解线性方程（分数精确表示）
